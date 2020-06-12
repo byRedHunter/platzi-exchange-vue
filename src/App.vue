@@ -1,6 +1,6 @@
 <template>
   <main>
-    <px-header />
+    <px-header :links="links" />
 
     <div class="contenedor">
       <router-view class="container mt-20" />
@@ -13,8 +13,28 @@ import PxHeader from '@/components/PxHeader'
 
 export default {
   name: 'app',
+
   components: {
     PxHeader
+  },
+
+  data() {
+    return {
+      links: [
+        {
+          title: 'BTC',
+          to: { name: 'coin-detail', params: { id: 'bitcoin' } }
+        },
+        {
+          title: 'ETH',
+          to: { name: 'coin-detail', params: { id: 'ethereum' } }
+        },
+        {
+          title: 'XRP',
+          to: { name: 'coin-detail', params: { id: 'ripple' } }
+        }
+      ]
+    }
   }
 }
 </script>
